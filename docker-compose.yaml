@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  api-service:
+    image: spring-boot-with-graphql
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - spring-boot-with-graphql-network
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+
+networks:
+  spring-boot-with-graphql-network:

@@ -1,0 +1,7 @@
+query get_user($id: Int!){
+    getUser(userId: $id){
+        id
+        email
+        firstName
+    }
+}

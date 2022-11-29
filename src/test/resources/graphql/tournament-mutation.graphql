@@ -1,0 +1,29 @@
+mutation create_tournament{
+    createTournament(name: "New tournament", userId: "63851c59dc4dfe0d5d74b883") {
+        id
+        name
+        creator {
+            id
+            email
+        }
+        participants {
+            id
+            email
+        }
+    }
+}
+
+mutation update_tournament{
+    updateTournament(tournamentId: "638525a30e5b3b4cfda59cc7", name: "New tournament updated version") {
+        id
+        name
+        creator {
+            id
+            email
+        }
+        participants {
+            id
+            email
+        }
+    }
+}

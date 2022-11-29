@@ -1,0 +1,14 @@
+query get_tournament($id: ID!){
+    getTournament(tournamentId: $id){
+        id
+        name
+        creator {
+            id
+            email
+        }
+        participants {
+            id
+            email
+        }
+    }
+}

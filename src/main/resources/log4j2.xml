@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %highlight{%d{dd-MM-yyyy HH:mm:ss.SSS} %5p ${hostName} -- [%15.15t] %-40.40c{1.}:%L - %m%n%ex}
+        </Property>
+        <Property name="LOG_CONSOLE_THRESHOLD">INFO</Property>
+        <Property name="LOG_FILE_THRESHOLD">OFF</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <ThresholdFilter level="${LOG_CONSOLE_THRESHOLD}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <logger name="com.pricing.booking" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="org.hibernate" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="org.hibernate.SQL" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="javax.persistence.criteria" level="ERROR" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="org.hibernate.Criteria" level="ERROR" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="com.zaxxer.hikari.pool" level="ERROR" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="org.hibernate.orm.deprecation" level="ERROR" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <!-- Log JDBC bind parameters -->
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="INFO" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <logger name="org.jeasy.rules.core" level="ERROR" additivity="false">
+            <AppenderRef ref="ConsoleAppender" />
+        </logger>
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender" />
+        </Root>
+    </Loggers>
+</Configuration>

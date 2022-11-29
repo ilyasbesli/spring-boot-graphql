@@ -1,0 +1,27 @@
+type User {
+    id: ID
+    email: String
+    firstName: String
+    lastName: String
+    # Don't show this Field!
+    password: String!
+}
+
+type Tournament {
+    id: ID
+    name: String
+    creator: User
+    participants: [User]
+}
+
+type Query {
+    getUser(userId: ID!): User
+    getTournament(tournamentId: ID!): Tournament
+}
+
+type Mutation {
+    createUser(email: String!, firstName: String, lastName: String, password: String): User
+    createTournament(name: String!, userId: ID): Tournament
+    updateTournament(tournamentId:ID!, name: String!): Tournament
+    joinTournament(tournamentId:ID!, userId: ID!): Tournament
+}

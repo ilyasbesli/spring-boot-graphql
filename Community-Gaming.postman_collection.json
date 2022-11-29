@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "80ec5b1f-e165-492d-bb3f-b712e7d55287",
+		"name": "Community-Gaming",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1331730"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"user@user.com\",\n    \"password\":\"user123\",\n    \"firstName\":\"ilyas\",\n    \"lastName\":\"besli\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/v1/register",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"user@user.com\",\n    \"password\":\"user123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/v1/authenticate",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  getUser (userId: \"63851c59dc4dfe0d5d74b883\") {\n    email\n    id\n    firstName\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/graphql",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTournament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  getTournament (tournamentId: \"638525a30e5b3b4cfda59cc7\") {\n    name\n    creator {\n        id\n        email\n        firstName\n    }\n    participants {\n        id\n        email\n        lastName\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/graphql",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTournament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createTournament(name: \"A New Tournament\", userId: \"63851c59dc4dfe0d5d74b883\") {\n    id\n    name\n    creator {\n      email\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/graphql",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTournament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  updateTournament(tournamentId:\"638525a30e5b3b4cfda59cc7\", name: \"A New Tournament updated\") {\n    id\n    name\n    creator {\n      email\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/graphql",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "joinTournament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  joinTournament(tournamentId:\"638525a30e5b3b4cfda59cc7\", userId: \"63851c59dc4dfe0d5d74b883\") {\n    id\n    name\n    creator {\n      email\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/graphql",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

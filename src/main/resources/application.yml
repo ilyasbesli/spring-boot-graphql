@@ -1,0 +1,8 @@
+# mongodb
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.j2axbl5.mongodb.net/communitygame?retryWrites=true&w=majority
+
+jwt:
+  secret: cfuWDmMfKScX4Xj828vfPJh7xqHkw5VKuoJ+/3hhDgFfZtplPcpB45bYYhXkWv67KhEZWJkOoL6JRt/Qb853LfkGjdh4KOuCPbGwQKTw7sJDRdiH2In18muiKYNlWY8EDQSff+f5gBD0VdBLVqwWsUlfd/y9GsFheBXNT8P3YH3xyilhOkJLIah1KRN9KR6DVLd4EDwco2UL0r0+eZXDKtVyqTCKk+PvDz3mbBcZMPE4QmcYOhov4AC/XlvtUUkTVfq4GqrkDCk2OhONBzF/yXwBMogx94rnVba9nPSs2BuGKifoAShKAq7XjwmnJxns6vDXs/1Mao40jeIVeUL9aA==

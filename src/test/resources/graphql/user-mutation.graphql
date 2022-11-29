@@ -1,0 +1,8 @@
+mutation create_user{
+    createUser(email: "user@user.com", firstName: "ilyas", lastName: "besli", password: "user132") {
+        id
+        email
+        firstName
+        lastName
+    }
+}
