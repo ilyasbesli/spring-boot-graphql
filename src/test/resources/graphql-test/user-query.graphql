@@ -1,4 +1,4 @@
-query get_user($id: Int!){
+query get_user($id: ID!){
     getUser(userId: $id){
         id
         email

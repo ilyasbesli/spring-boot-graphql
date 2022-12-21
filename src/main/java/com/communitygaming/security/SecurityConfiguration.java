@@ -33,25 +33,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and()
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers("/api/v1/authenticate").permitAll()
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/api/v1/authenticate").permitAll()
                 .antMatchers("/api/v1/register").permitAll()
-            .antMatchers("/api/v1/public/**").permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .exceptionHandling()
-            .authenticationEntryPoint(jwtAuthenticationEntryPoint)
-            .and()
-            .addFilterBefore(new JwtAuthorizationFilter(authenticationManager(), tokenProvider), UsernamePasswordAuthenticationFilter.class)
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .antMatchers("/api/v1/public/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .and()
+                .addFilterBefore(new JwtAuthorizationFilter(authenticationManager(), tokenProvider), UsernamePasswordAuthenticationFilter.class)
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()
-            .antMatchers(HttpMethod.OPTIONS, "/**");
+                .antMatchers(HttpMethod.OPTIONS, "/**");
     }
 
     @Override
